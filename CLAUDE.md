@@ -13,6 +13,7 @@ Meta/template repository for classic game engines exposed via HTTP API and brows
 |--------|------|------|--------|
 | `checkers_server` | Checkers | github.com/jhtschultz/checkers_server | Deployed |
 | `gnubg_server` | Backgammon | github.com/jhtschultz/gnubg_server | Deployed |
+| `go_server` | Go | github.com/jhtschultz/go_server | Deployed |
 | `stockfish_server` | Chess | github.com/jhtschultz/stockfish_server | Deployed |
 | `wbridge5_server` | Bridge | github.com/jhtschultz/wbridge5_server | Deployed |
 
@@ -31,6 +32,7 @@ classic_game_engines/
 └── engines/                    # Local clones (git-ignored, each has own .git)
     ├── checkers/               # → github.com/jhtschultz/checkers_server
     ├── gnubg/                  # → github.com/jhtschultz/gnubg_server
+    ├── go/                     # → github.com/jhtschultz/go_server
     ├── stockfish/              # → github.com/jhtschultz/stockfish_server
     └── wbridge5/               # → github.com/jhtschultz/wbridge5_server
 ```
