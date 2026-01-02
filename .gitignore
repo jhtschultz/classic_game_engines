@@ -1,0 +1,12 @@
+# OS files
+.DS_Store
+
+# Editor files
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Don't track cloned engine repos
+engines/

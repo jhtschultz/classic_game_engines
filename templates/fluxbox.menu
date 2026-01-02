@@ -1,0 +1,8 @@
+[begin] (Game)
+  [exec] (Launch Game) {wine64 "C:\\Game\\game.exe"}
+  [separator]
+  [exec] (Terminal) {xterm}
+  [separator]
+  [restart] (Restart)
+  [exit] (Exit)
+[end]
