@@ -61,7 +61,15 @@ All engines follow this pattern:
 nginx:8080
 ├── /           → noVNC (browser VNC client)
 ├── /websockify → WebSocket→VNC bridge
-└── /api/*      → FastAPI → Engine
+├── /shell/     → ttyd (web terminal for debugging)
+└── /api/*      → Flask/FastAPI (optional)
 ```
 
-Requires Cloud Run Gen2 for Wine support.
+## Key Learnings
+
+- **Use `python:3.11-slim`** as base image - it's Debian bookworm with Python pre-installed, no downside
+- **Clone noVNC from GitHub** - Debian apt packages have websocket compatibility issues that break keyboard input
+- **Cloud Run Gen2** only required for Wine apps - native Linux apps work fine on Gen1
+- **Add ttyd** for `/shell/` access - invaluable for debugging container issues
+- **Build timeout**: Use `--timeout=30m` for images with VNC stack (they're large)
+- **Memory**: 2Gi minimum recommended for VNC stack
