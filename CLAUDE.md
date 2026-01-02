@@ -75,3 +75,10 @@ nginx:8080
 - **Add ttyd** for `/shell/` access - invaluable for debugging container issues
 - **Build timeout**: Use `--timeout=30m` for images with VNC stack (they're large)
 - **Memory**: 2Gi minimum recommended for VNC stack
+- **Leverage Docker caching during iteration**:
+  - Test locally first: `docker build -t myserver . && docker run --rm -p 8080:8080 myserver`
+  - Use `--cache-from` with Cloud Build: `gcloud builds submit --tag gcr.io/PROJECT/image --cache-from gcr.io/PROJECT/image`
+  - Order Dockerfile layers: put slow/stable steps (apt-get, compile) early, fast/changing steps (config, COPY) late
+  - For heavy compilation (KataGo, etc), consider a base image with pre-built binaries
+  - **Split pip installs**: Put slow dependencies (e.g., `katrain`) in one layer, fast ones (e.g., `flask`) in a separate layer AFTER any compilation steps. This preserves cache when adding new Python packages.
+  - TODO: go_server hasn't applied this yet - flask is in same pip install as katrain, causing full rebuild
