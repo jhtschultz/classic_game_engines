@@ -54,6 +54,9 @@ classic_game_engines/
 - [x] Rename gnubg_gui_server → gnubg_server on GitHub
 - [x] Move repos to engines/ and update remotes
 - [x] Extract wbridge5 from gnubg into wbridge5_server
+- [ ] **Standardize VNC view size** - Currently inconsistent across engines (some use 1024x768, others 1280x800). Pick a standard resolution that works well in browser.
+- [ ] **Document how to reopen closed apps** - Users need instructions for when the GUI app closes/crashes. Options: fluxbox menu, terminal command, or auto-restart. Add to each README and templates.
+- [ ] **Add app auto-restart** - Consider adding a supervisor or loop in start.sh to restart the main GUI app if it crashes
 
 ## Common Architecture
 
